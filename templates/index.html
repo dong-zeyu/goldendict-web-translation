@@ -2,17 +2,29 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
     <title>{{ word }}</title>
+    <script>
+        window.onload = function() {
+            if(!window.location.hash) {
+                window.location = window.location + '#loaded';
+                window.location.reload();
+            }
+        }
+    </script>
     <style>
         body, p {
             margin: 0px;
         }
+        div {
+            margin-bottom: 1.5em;
+        }
     </style>
 </head>
 <body>
+    <div>
 	{% for i in trans %}
     <p>{{ i }}</p>
     {% endfor %}
+    </div>
 </body>
 </html>
