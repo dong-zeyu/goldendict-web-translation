@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+    <title>{{ word }}</title>
+    <style>
+        body, p {
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+	{% for i in trans %}
+    <p>{{ i }}</p>
+    {% endfor %}
+</body>
+</html>
