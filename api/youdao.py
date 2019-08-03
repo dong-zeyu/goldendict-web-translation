@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 session = requests.session()
 logger = logging.getLogger(__name__)
-
+logger.setLevel(logging.DEBUG)
 
 def get_trans(word, machine=True):
     try:

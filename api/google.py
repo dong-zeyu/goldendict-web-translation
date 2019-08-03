@@ -5,6 +5,7 @@ import requests
 from googletrans import Translator
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 translator = Translator(
     service_urls=["translate.google.cn"],
     user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
