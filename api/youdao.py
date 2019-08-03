@@ -12,14 +12,14 @@ logger.setLevel(logging.DEBUG)
 
 def get_trans(word, machine=True):
     try:
-        count = 0
+        count = 3
         while True:
-            if count > 3:
-                raise Exception("Maximum number of retries Exceeded")
+            if count == 0:
+                raise TranslateException("Maximum number of retries Exceeded")
             try:
                 with session.get(
                         f"https://www.youdao.com/w/{quote(word)}/",
-                        timeout=5) as re:
+                        timeout=2) as re:
                     if re.status_code == 200:
                         content = BeautifulSoup(re.content.decode(),
                                                 "html5lib")
@@ -43,10 +43,10 @@ def get_trans(word, machine=True):
                             raise TranslateException("No translation found")
                         return trans
             except requests.RequestException:
+                count = count - 1
                 logger.warn(
                     "Network error when translating [%s]: %s times remain",
                     word, count)
-            count = count + 1
     except TranslateException as e:
         raise e
     except Exception as e:
