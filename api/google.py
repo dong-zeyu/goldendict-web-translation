@@ -1,6 +1,7 @@
 import logging
 from exceptions import TranslateException
 
+import requests
 from googletrans import Translator
 
 logger = logging.getLogger(__name__)
@@ -27,6 +28,9 @@ def get_trans(word, machine=True):
             trans = [trans.text]
 
         return trans
+    except requests.RequestException:
+        logger.warn("Network error when translating [%s]", word)
+        raise TranslateException()
     except Exception as e:
         logger.warn("Failed to translate [%s]: %s", word, e, exc_info=True)
         raise TranslateException()
