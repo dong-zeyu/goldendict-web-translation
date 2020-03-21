@@ -13,6 +13,13 @@ app = Flask(__name__)
 def index():
     word = request.args.get("q")
     serv = request.args.get("s", "auto")
+
+    if not word:
+        return render_template(
+            'index.html',
+            word="Error",
+            trans=[f"No word provided"]), 400
+
     try:
         module = __import__(serv)
         if not hasattr(module, "get_trans"):
