@@ -60,5 +60,5 @@ def get_trans(word, machine=True):
     except TranslateException as e:
         raise e
     except Exception as e:
-        logger.warn("Faid to translate [%s]: %s", word, e, exc_info=True)
+        logger.warn("Failed to translate [%s]: %s", word, e, exc_info=True)
         raise TranslateException()
