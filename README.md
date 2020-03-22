@@ -27,4 +27,6 @@ You can create your own api and put the file into `api` folder. The file must ha
 
 - Goldendict cannot correctly handle page height according to [this issue](https://github.com/goldendict/goldendict/issues/614). As a workaround, the page have to be loaded twice (see [templates/index.html](templates/index.html)).
 
-- googletrans has an outdated translation api in pypi repository (which has been solved [upstream](https://github.com/ssut/py-googletrans/pull/102)). Please apply this upstream patch to attain better translation quality.
+- googletrans
+  - Outdated translation api ([fix](https://github.com/ssut/py-googletrans/pull/102)).
+  - Failure on Emoji ([fix](https://github.com/ssut/py-googletrans/pull/134))
