@@ -51,7 +51,7 @@ def get_trans(word, machine=True):
                                     trans.find_all("p")[1].text
                                 ]
 
-                        raise TranslateException("No translation found")
+                raise TranslateException("No translation found")
             except requests.RequestException:
                 count = count - 1
                 logger.warn(
