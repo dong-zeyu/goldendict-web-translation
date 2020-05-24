@@ -4,12 +4,21 @@ This project aims to provide web translations for Goldendict.
 
 ## Requirements
 
-- flask
+- flask (1.1.x)
 - requests
 - BeautifulSoup (with html5lib)
 - googletrans
 
 ## Usage
+
+### Test Run
+
+```bash
+git clone https://github.com/dizzam/goldendict-web-translation.git translation
+FLASK_APP=translation flask run
+```
+
+### Query
 
 The query url is
 
