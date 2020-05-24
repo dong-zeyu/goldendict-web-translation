@@ -1,13 +1,13 @@
 import logging
-from exceptions import TranslateException
 from urllib.parse import quote
 
 import requests
 from bs4 import BeautifulSoup
 
+from ..exceptions import TranslateException
+
 session = requests.session()
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
 
 
 def get_trans(word, machine=True):

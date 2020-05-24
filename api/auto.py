@@ -1,6 +1,6 @@
-import google as google
-import youdao as youdao
-from exceptions import TranslateException
+from . import google
+from . import youdao
+from ..exceptions import TranslateException
 
 cache = {}
 cache_size = 5000

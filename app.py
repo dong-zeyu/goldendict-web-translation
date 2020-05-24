@@ -1,11 +1,11 @@
-import logging
 import sys
-from exceptions import TranslateException
-
+import importlib
 from flask import Flask, render_template, request
 
-sys.path.append("./api")
-app = Flask(__name__)
+from .exceptions import TranslateException
+
+app = Flask(__package__)
+logger = app.logger
 
 
 @app.route('/translate')
@@ -20,13 +20,13 @@ def index():
             trans=[f"No word provided"]), 400
 
     try:
-        module = __import__(serv)
+        module = importlib.import_module(f".api.{serv}", package=__package__)
         if not hasattr(module, "get_trans"):
             raise ImportError("No available api [get_trans] found")
         return render_template(
             'index.html', word=word, trans=module.get_trans(word))
     except ImportError as e:
-        logging.warn("Import Module [%s] Failed: %s", serv, e)
+        logger.warn("Import Module [%s] Failed: %s", serv, e)
         return render_template(
             'index.html',
             word="Error",
@@ -37,6 +37,3 @@ def index():
             word="Error",
             trans=[f"Faid to translate [{word}]"]), 500
 
-
-if __name__ == '__main__':
-    app.run(debug=True)

@@ -1,8 +1,9 @@
 import logging
-from exceptions import TranslateException
 
 import requests
 from googletrans import Translator
+
+from ..exceptions import TranslateException
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
