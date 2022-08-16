@@ -14,8 +14,9 @@ This project aims to provide web translations for Goldendict.
 ### Test Run
 
 ```bash
-git clone https://github.com/dizzam/goldendict-web-translation.git translation
-FLASK_APP=translation flask run
+git clone https://github.com/dong-zeyu/goldendict-web-translation.git translation
+cd translation
+FLASK_APP=translate flask run
 ```
 
 ### Query
