@@ -7,9 +7,7 @@ from ..exceptions import TranslateException
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-translator = Translator(
-    user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
-    timeout=5)
+translator = Translator(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36")
 
 
 def get_trans(word, machine=True):
